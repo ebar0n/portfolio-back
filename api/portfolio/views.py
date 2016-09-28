@@ -1,4 +1,4 @@
-from rest_framework import filters, viewsets
+from rest_framework import filters, mixins, viewsets
 
 from portfolio import models, serializers
 
@@ -14,14 +14,18 @@ class TagViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = serializers.TagSerializer
 
 
-class DeveloperViewSet(viewsets.ReadOnlyModelViewSet):
+class DeveloperViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     """
     ViewSet for Developer
     """
-    filter_backends = (filters.SearchFilter,)
-    queryset = models.Developer.objects.filter(user__is_active=True)
-    search_fields = ('user__username', 'user__first_name', 'user__last_name', 'user__email')
+    pagination_class = None
     serializer_class = serializers.DeveloperSerializer
+
+    def get_queryset(self):
+        return models.Developer.objects.filter(
+            user__is_active=True,
+            domain=self.request.META.get('HTTP_HOST', '')
+        )
 
 
 class EntryViewSet(viewsets.ReadOnlyModelViewSet):
@@ -29,9 +33,15 @@ class EntryViewSet(viewsets.ReadOnlyModelViewSet):
     ViewSet for Entry
     """
     filter_backends = (filters.DjangoFilterBackend, filters.SearchFilter)
-    filter_fields = ('developer', 'tags')
+    filter_fields = ('tags',)
     queryset = models.Entry.objects.filter(developer__user__is_active=True)
     search_fields = ('title',)
+
+    def get_queryset(self):
+        return models.Entry.objects.filter(
+            developer__user__is_active=True,
+            developer__domain=self.request.META.get('HTTP_HOST', '')
+        )
 
     def get_serializer_class(self):
         if self.action == 'retrieve':

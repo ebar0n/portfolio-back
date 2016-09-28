@@ -27,8 +27,8 @@ nano .env
 * Config domain
 
 ```sh
-echo "127.0.0.1 dev.portfolio.com" | sudo tee -a /etc/hosts > /dev/null
-echo "127.0.0.1 dev.api.portfolio.com" | sudo tee -a /etc/hosts > /dev/null
+echo "127.0.0.1 dev.portfolio.me" | sudo tee -a /etc/hosts > /dev/null
+echo "127.0.0.1 dev.api.portfolio.me" | sudo tee -a /etc/hosts > /dev/null
 ```
 
 ### Enable cache for Dev
@@ -84,11 +84,11 @@ docker-compose run --rm api python manage.py migrate
 docker-compose up -d
 ```
 
-* Open project on browser [dev.portfolio.com](http://dev.portfolio.com)
+* Open project on browser [dev.portfolio.me](http://dev.portfolio.me)
 
-* Open API on browser [dev.api.portfolio.com](http://dev.api.portfolio.com)
+* Open API on browser [dev.api.portfolio.me](http://dev.api.portfolio.me)
 
-* Open API on browser optional in Dev [dev.api.portfolio.com:8000](http://dev.api.portfolio.com:8000)
+* Open API on browser optional in Dev [dev.api.portfolio.me:8000](http://dev.api.portfolio.me:8000)
 
 ### Django Admin
 
@@ -98,7 +98,7 @@ docker-compose up -d
 docker-compose run --rm api python manage.py createsuperuser
 ```
 
-* Access to django admin [dev.api.portfolio.com/admin/](http://dev.api.portfolio.com/admin/)
+* Access to django admin [dev.api.portfolio.me/admin/](http://dev.api.portfolio.me/admin/)
 
 ### Run tests to code
 
@@ -179,7 +179,7 @@ docker-compose -f docker-compose-production.yml run --rm api python manage.py co
 docker-compose -f docker-compose-production.yml up -d
 ```
 
-* Visit [dev.portfolio.com](https://dev.portfolio.com/)
+* Visit [dev.portfolio.me](http://dev.portfolio.me/)
 
 ### Automatic deploy using `fabric`
 

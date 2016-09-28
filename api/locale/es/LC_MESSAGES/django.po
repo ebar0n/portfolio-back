@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-28 03:53+0000\n"
+"POT-Creation-Date: 2016-09-28 15:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: api/settings.py:116
+#: api/settings.py:110
 msgid "English"
 msgstr "Inglés"
 
-#: api/settings.py:117
+#: api/settings.py:111
 msgid "Spanish"
 msgstr "Español"
 
@@ -30,17 +30,17 @@ msgstr "Español"
 msgid "portfolio"
 msgstr "portafolio"
 
-#: portfolio/models.py:17 portfolio/models.py:83 portfolio/models.py:143
+#: portfolio/models.py:17 portfolio/models.py:84 portfolio/models.py:144
 msgid "name"
 msgstr "nombre"
 
-#: portfolio/models.py:19 portfolio/models.py:60 portfolio/models.py:86
-#: portfolio/models.py:118 portfolio/models.py:145 portfolio/models.py:170
+#: portfolio/models.py:19 portfolio/models.py:61 portfolio/models.py:87
+#: portfolio/models.py:119 portfolio/models.py:146 portfolio/models.py:171
 msgid "created at"
 msgstr "creado a las"
 
-#: portfolio/models.py:20 portfolio/models.py:61 portfolio/models.py:87
-#: portfolio/models.py:119 portfolio/models.py:146 portfolio/models.py:171
+#: portfolio/models.py:20 portfolio/models.py:62 portfolio/models.py:88
+#: portfolio/models.py:120 portfolio/models.py:147 portfolio/models.py:172
 msgid "updated at"
 msgstr "actualizado a las"
 
@@ -48,7 +48,7 @@ msgstr "actualizado a las"
 msgid "tag"
 msgstr "etiqueta"
 
-#: portfolio/models.py:24 portfolio/models.py:49 portfolio/models.py:117
+#: portfolio/models.py:24 portfolio/models.py:50 portfolio/models.py:118
 msgid "tags"
 msgstr "etiquetas"
 
@@ -56,102 +56,106 @@ msgstr "etiquetas"
 msgid "user"
 msgstr "usuario"
 
-#: portfolio/models.py:47 portfolio/models.py:114 portfolio/models.py:169
+#: portfolio/models.py:47 portfolio/models.py:115 portfolio/models.py:170
 msgid "description"
 msgstr "descripción"
 
 #: portfolio/models.py:48
+msgid "domain"
+msgstr "dominio"
+
+#: portfolio/models.py:49
 msgid "phone number"
 msgstr "número de teléfono"
 
-#: portfolio/models.py:50 portfolio/models.py:144
+#: portfolio/models.py:51 portfolio/models.py:145
 msgid "avatar"
 msgstr "avatar"
 
-#: portfolio/models.py:51 portfolio/models.py:84 portfolio/models.py:113
+#: portfolio/models.py:52 portfolio/models.py:85 portfolio/models.py:114
 msgid "website"
 msgstr "sitio web"
 
-#: portfolio/models.py:52
+#: portfolio/models.py:53
 msgid "behance"
 msgstr "behance"
 
-#: portfolio/models.py:53
+#: portfolio/models.py:54
 msgid "facebook"
 msgstr "facebook"
 
-#: portfolio/models.py:54
+#: portfolio/models.py:55
 msgid "instagram"
 msgstr "instagram"
 
-#: portfolio/models.py:55
+#: portfolio/models.py:56
 msgid "github"
 msgstr "github"
 
-#: portfolio/models.py:56
+#: portfolio/models.py:57
 msgid "bitbucket"
 msgstr "bitbucket"
 
-#: portfolio/models.py:57
+#: portfolio/models.py:58
 msgid "twitter"
 msgstr "twitter"
 
-#: portfolio/models.py:58
+#: portfolio/models.py:59
 msgid "linkedIn"
 msgstr "linkedIn"
 
-#: portfolio/models.py:59
+#: portfolio/models.py:60
 msgid "stackOverFlow"
 msgstr "stackOverFlow"
 
-#: portfolio/models.py:64 portfolio/models.py:65 portfolio/models.py:110
+#: portfolio/models.py:65 portfolio/models.py:66 portfolio/models.py:111
 msgid "developer"
 msgstr "desarrollador"
 
-#: portfolio/models.py:85
+#: portfolio/models.py:86
 msgid "email"
 msgstr "email"
 
-#: portfolio/models.py:90 portfolio/models.py:111
+#: portfolio/models.py:91 portfolio/models.py:112
 msgid "customer"
 msgstr "cliente"
 
-#: portfolio/models.py:91
+#: portfolio/models.py:92
 msgid "customers"
 msgstr "clientes"
 
-#: portfolio/models.py:112
+#: portfolio/models.py:113
 msgid "title"
 msgstr "título"
 
-#: portfolio/models.py:115
+#: portfolio/models.py:116
 msgid "start date"
 msgstr "fecha de inicio"
 
-#: portfolio/models.py:116
+#: portfolio/models.py:117
 msgid "end date"
 msgstr "fecha de fin"
 
-#: portfolio/models.py:122 portfolio/models.py:142 portfolio/models.py:168
+#: portfolio/models.py:123 portfolio/models.py:143 portfolio/models.py:169
 msgid "entry"
 msgstr "entrada"
 
-#: portfolio/models.py:123
+#: portfolio/models.py:124
 msgid "entries"
 msgstr "entradas"
 
-#: portfolio/models.py:149
+#: portfolio/models.py:150
 msgid "image"
 msgstr "imagen"
 
-#: portfolio/models.py:150
+#: portfolio/models.py:151
 msgid "images"
 msgstr "imágenes"
 
-#: portfolio/models.py:174
+#: portfolio/models.py:175
 msgid "testimony"
 msgstr "testimonio"
 
-#: portfolio/models.py:175
+#: portfolio/models.py:176
 msgid "testimonies"
 msgstr "testimonios"
