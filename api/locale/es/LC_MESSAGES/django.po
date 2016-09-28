@@ -1,0 +1,113 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-09-28 01:05+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: api/settings.py:116
+msgid "English"
+msgstr "Inglés"
+
+#: api/settings.py:117
+msgid "Spanish"
+msgstr "Español"
+
+#: portfolio/apps.py:7
+msgid "portfolio"
+msgstr "portafolio"
+
+#: portfolio/models.py:17 portfolio/models.py:107
+msgid "name"
+msgstr "nombre"
+
+#: portfolio/models.py:19 portfolio/models.py:53 portfolio/models.py:82
+#: portfolio/models.py:109
+msgid "created at"
+msgstr "creado a las"
+
+#: portfolio/models.py:20 portfolio/models.py:54 portfolio/models.py:83
+#: portfolio/models.py:110
+msgid "updated at"
+msgstr "actualizado a las"
+
+#: portfolio/models.py:23
+msgid "tag"
+msgstr "etiqueta"
+
+#: portfolio/models.py:24 portfolio/models.py:81
+msgid "tags"
+msgstr "etiquetas"
+
+#: portfolio/models.py:46
+msgid "user"
+msgstr "usuario"
+
+#: portfolio/models.py:47 portfolio/models.py:108
+msgid "avatar"
+msgstr "avatar"
+
+#: portfolio/models.py:48
+msgid "website"
+msgstr "sitio web"
+
+#: portfolio/models.py:49
+msgid "github"
+msgstr "github"
+
+#: portfolio/models.py:50
+msgid "twitter"
+msgstr "twitter"
+
+#: portfolio/models.py:51
+msgid "linkedIn"
+msgstr "linkedIn"
+
+#: portfolio/models.py:52
+msgid "stackOverFlow"
+msgstr "stackOverFlow"
+
+#: portfolio/models.py:57 portfolio/models.py:58 portfolio/models.py:77
+msgid "developer"
+msgstr "desarrollador"
+
+#: portfolio/models.py:78
+msgid "title"
+msgstr "título"
+
+#: portfolio/models.py:79
+msgid "description"
+msgstr "descripción"
+
+#: portfolio/models.py:80
+msgid "date"
+msgstr "fecha"
+
+#: portfolio/models.py:86 portfolio/models.py:106
+msgid "entry"
+msgstr "entrada"
+
+#: portfolio/models.py:87
+msgid "entries"
+msgstr "entradas"
+
+#: portfolio/models.py:113
+msgid "image"
+msgstr "imagen"
+
+#: portfolio/models.py:114
+msgid "images"
+msgstr "imágenes"

@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  postgres:
+    extends:
+      file: docker-compose-common.yml
+      service: postgres
+
+  api:
+    extends:
+      file: docker-compose-common.yml
+      service: api-develoment
+    command: python manage.py runserver 0.0.0.0:8000
+    depends_on:
+      - postgres
+    ports:
+      - '8000:8000'

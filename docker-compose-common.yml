@@ -1,0 +1,35 @@
+version: '2'
+
+services:
+  postgres:
+    image: postgres:9.5
+    volumes:
+      - ~/data/portfolio/postgres:/var/lib/postgresql/data
+    env_file: ./.env
+    ports:
+      - "15432:5432"
+
+  nginx:
+    env_file: ./.env
+    volumes:
+      - ./api/public/:/srv/www/api/
+      - ./run:/srv/www/run
+    restart: always
+
+  api-develoment:
+    build:
+      context: .
+      dockerfile: Dockerfile-Development
+    env_file: ./.env
+    volumes:
+      - ./api:/srv/www/api
+    working_dir: /srv/www/api
+
+  api-production:
+    extends:
+      service: cuchibox-develoment
+    build:
+      dockerfile: Dockerfile-Production
+    volumes:
+      - ./run:/srv/www/run
+    restart: always

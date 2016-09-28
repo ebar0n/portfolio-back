@@ -1,0 +1,12 @@
+FROM python:3.6
+
+RUN apt-get update && apt-get install -y postgresql-client \
+    gcc gettext \
+    --no-install-recommends && rm -rf /var/lib/apt/lists/*
+
+COPY ./requirements/base.pip /requirements/base.pip
+COPY ./requirements/development.pip /requirements/development.pip
+
+RUN pip install -r /requirements/development.pip \
+    -i http://172.17.0.2:3141/root/pypi/ --trusted-host 172.17.0.2 \
+    --timeout 300
