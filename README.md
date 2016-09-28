@@ -170,6 +170,7 @@ docker-compose -f docker-compose-production.yml build
 docker-compose -f docker-compose-production.yml up -d postgres
 docker-compose -f docker-compose-production.yml run --rm api python manage.py migrate --noinput
 docker-compose -f docker-compose-production.yml run --rm api python manage.py collectstatic --noinput
+docker-compose -f docker-compose-production.yml run --rm api python manage.py compilemessages
 ```
 
 * Run Django server

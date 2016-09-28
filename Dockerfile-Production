@@ -9,4 +9,4 @@ COPY ./requirements/production.pip /requirements/production.pip
 
 RUN pip install -r /requirements/production.pip
 
-COPY ./api /src/www
+COPY ./api /srv/www/api
