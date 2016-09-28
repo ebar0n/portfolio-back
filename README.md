@@ -190,3 +190,4 @@ pip install fabric
 * fab log
 * fab pull
 * fab build
+* fab test
