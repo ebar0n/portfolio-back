@@ -32,6 +32,7 @@ class DeveloperSerializer(serializers.ModelSerializer):
     """
 
     user = serializers.SerializerMethodField('getter_user')
+    skills = serializers.SerializerMethodField('getter_skills')
 
     class Meta:
         fields = (
@@ -43,6 +44,10 @@ class DeveloperSerializer(serializers.ModelSerializer):
 
     def getter_user(self, obj):
         serializer = UserSerializer(obj.user)
+        return serializer.data
+
+    def getter_skills(self, obj):
+        serializer = TagSerializer(obj.skills, many=True)
         return serializer.data
 
 
@@ -81,6 +86,7 @@ class EntrySerializer(serializers.ModelSerializer):
         Entry Serializer
     """
 
+    tags = serializers.SerializerMethodField('getter_tags')
     image_get_filter = serializers.SerializerMethodField('image_set')
 
     class Meta:
@@ -88,6 +94,10 @@ class EntrySerializer(serializers.ModelSerializer):
             'id', 'developer', 'title', 'start_date', 'end_date', 'tags', 'image_get_filter'
         )
         model = models.Entry
+
+    def getter_tags(self, obj):
+        serializer = TagSerializer(obj.tags, many=True)
+        return serializer.data
 
     def image_set(self, obj):
         serializer = ImageSerializer(
@@ -101,6 +111,7 @@ class EntryRetrieveSerializer(serializers.ModelSerializer):
         Entry Retrieve Serializer
     """
 
+    tags = serializers.SerializerMethodField('getter_tags')
     image_get_filter = serializers.SerializerMethodField('image_set')
     testimony_get_filter = serializers.SerializerMethodField('testimony_set')
     customer = serializers.SerializerMethodField('getter_customer')
@@ -111,6 +122,10 @@ class EntryRetrieveSerializer(serializers.ModelSerializer):
             'tags', 'website', 'testimony_get_filter', 'image_get_filter', 'created_at', 'updated_at'
         )
         model = models.Entry
+
+    def getter_tags(self, obj):
+        serializer = TagSerializer(obj.tags, many=True)
+        return serializer.data
 
     def image_set(self, obj):
         serializer = ImageSerializer(

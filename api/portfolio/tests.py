@@ -162,7 +162,7 @@ def test_developers_list(client, url_developers, developer):
 
 
 @pytest.mark.django_db
-def test_entries_list(client, url_entries, entries, developer):
+def test_entries_list(client, url_entries, entries):
     """
     Testing list of entry
 
@@ -170,13 +170,12 @@ def test_entries_list(client, url_entries, entries, developer):
         client: ApiClient
         url_entries: Endpoint Url
         entries: function to create a list of objects
-        developer: function to create a object
     """
     number_of_objects = models.Entry.objects.count()
     tag = models.Tag.objects.all().first()
 
     request = client.get(
-        path='{}?developer={}&?tags={}'.format(url_entries, developer.id, tag.id),
+        path='{}?tags={}'.format(url_entries, tag.id),
         format='json'
     )
 
