@@ -1,8 +1,11 @@
 import os
 
-from fabric.api import cd
+from fabric.api import cd, env
 from fabric.colors import green
 from fabric.operations import prompt
+
+env.user = 'root'
+env.key_filename = '~/.ssh/id_rsa.pub'
 
 YML = '-f docker-compose-production.yml'
 LOCAL = prompt(green('Execute local: y/n'), default='y') in ['y', 'Y']

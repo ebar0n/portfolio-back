@@ -10,6 +10,7 @@ services:
       - "15432:5432"
 
   nginx:
+    build: ./compose/nginx
     env_file: ./.env
     volumes:
       - ./public/:/srv/www/api/
@@ -27,10 +28,11 @@ services:
     working_dir: /srv/www/api
 
   api-production:
-    extends:
-      service: cuchibox-develoment
     build:
+      context: .
       dockerfile: Dockerfile-Production
     volumes:
+      - ./public:/srv/www/public
       - ./run:/srv/www/run
+    working_dir: /srv/www/api
     restart: always
