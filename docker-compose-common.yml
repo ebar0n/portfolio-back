@@ -12,7 +12,7 @@ services:
   nginx:
     env_file: ./.env
     volumes:
-      - ./api/public/:/srv/www/api/
+      - ./public/:/srv/www/api/
       - ./run:/srv/www/run
     restart: always
 
@@ -23,6 +23,7 @@ services:
     env_file: ./.env
     volumes:
       - ./api:/srv/www/api
+      - ./public:/srv/www/public
     working_dir: /srv/www/api
 
   api-production:
