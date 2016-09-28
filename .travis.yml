@@ -5,7 +5,7 @@ sudo: required
 services:
   - docker
 language: python
-python: 3.6
+python: 2.7
 
 env:
   DOCKER_COMPOSE_VERSION: 1.8.0
@@ -26,6 +26,6 @@ script:
   - cp env.example .env
   - docker-compose build
   - docker-compose run --rm --no-deps api isort -c -rc -df
-  - docker-compose run --rm api flake8
+  - docker-compose run --rm --no-deps api flake8
   - docker-compose run --rm api python manage.py check
   - docker-compose run --rm api py.test
