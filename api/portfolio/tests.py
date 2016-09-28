@@ -157,43 +157,8 @@ def test_developers_list(client, url_developers, developer):
     request = client.get(path=url_developers, format='json')
 
     assert request.status_code == status.HTTP_200_OK, 'Fails to list developers'
-    assert request.data.get('count') == (number_of_objects), 'Incorrect number objects in data'
+    assert len(request.data) == (number_of_objects), 'Incorrect number objects in data'
     assert models.Developer.objects.count() == (number_of_objects), 'Incorrect number objects of developer'
-
-
-@pytest.mark.django_db
-def test_developers_search(client, url_developers, developer):
-    """
-    Testing search of developers
-
-    Args:
-        client: ApiClient
-        url_developers: Endpoint Url
-        developer: function to create a object
-    """
-    # Create N objects
-    number_of_objects = 1
-
-    request = client.get(path='{}?search={}'.format(url_developers, developer.user.username), format='json')
-
-    assert request.status_code == status.HTTP_200_OK, 'Fails to list developers'
-    assert len(request.data) != number_of_objects, 'Incorrect number objects in data'
-
-
-@pytest.mark.django_db
-def test_developers_retrive(client, url_developers, developer):
-    """
-    Testing retrive of developers
-
-    Args:
-        client: ApiClient
-        url_developers: Endpoint Url
-        developer: function to create a object
-    """
-    request = client.get(path='{}{}/'.format(url_developers, developer.id), format='json')
-
-    assert request.status_code == status.HTTP_200_OK, 'Fails to list developers'
-    assert request.data.get('id') == developer.id, 'Incorrect id objects in data'
 
 
 @pytest.mark.django_db

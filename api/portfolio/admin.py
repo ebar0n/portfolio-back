@@ -14,7 +14,7 @@ class TagAdmin(admin.ModelAdmin):
 @admin.register(models.Developer)
 class DeveloperAdmin(admin.ModelAdmin):
     filter_horizontal = ('skills',)
-    list_display = ('user', 'phone_number')
+    list_display = ('user', 'phone_number', 'domain')
     list_filter = ('user__is_active',)
     ordering = ('user__username',)
     readonly_fields = ('created_at', 'updated_at')

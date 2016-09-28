@@ -32,6 +32,7 @@ class DeveloperFactory(factory.django.DjangoModelFactory):
 
     user = None
     description = factory.LazyAttribute(lambda x: faker.text())
+    domain = ''
     phone_number = factory.LazyAttribute(lambda x: faker.phone_number())
     avatar = factory.LazyAttribute(lambda x: faker.url())
     website = factory.LazyAttribute(lambda x: faker.url())

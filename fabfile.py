@@ -7,20 +7,20 @@ from fabric.operations import prompt
 env.user = 'root'
 env.key_filename = '~/.ssh/id_rsa.pub'
 
-YML = '-f docker-compose-production.yml'
 LOCAL = prompt(green('Execute local: y/n'), default='y') in ['y', 'Y']
 
 if LOCAL:
     from fabric.api import local as run
     YML = ''
+    HOME_DIRECTORY = os.path.dirname(os.path.abspath(__file__))
 else:
     from fabric.api import run
+    YML = '-f docker-compose-production.yml'
+    HOME_DIRECTORY = '/root/portfolio-back'
 
 HOME_DIRECTORY = prompt(
     green('Directory: '),
-    default=os.path.dirname(
-        os.path.abspath(__file__)
-    )
+    default=HOME_DIRECTORY
 )
 
 

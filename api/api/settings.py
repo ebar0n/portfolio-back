@@ -10,9 +10,6 @@ env = environ.Env(
     MEDIA_URL=(str, '/media/'),
     DATABASE_URL=(str, 'psql://postgres:postgres@localhost:5432/portfolio'),
     ALLOWED_HOSTS=(list, []),
-    COOKIE_DOMAIN=(str, '.portfolio.com'),
-    SITE_URL=(str, 'http://dev.portfolio.com/'),
-    API_URL=(str, 'http://dev.api.portfolio.com/'),
     ADMIN_EMAIL=(str, ''),
 )
 
@@ -29,10 +26,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = env('ALLOWED_HOSTS')
-
-CSRF_COOKIE_DOMAIN = env('COOKIE_DOMAIN')
-SESSION_COOKIE_DOMAIN = env('COOKIE_DOMAIN')
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 
 # Application definition
 
@@ -110,7 +104,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'es-es'
 
 LANGUAGES = [
     ('en', _('English')),
@@ -125,7 +119,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-locale_root = root.path('locale/')
+locale_root = root.path('api/locale/')
 
 LOCALE_PATHS = (locale_root(),)
 
@@ -139,11 +133,6 @@ STATIC_ROOT = public_root('staticfiles')
 STATIC_URL = env('STATIC_URL')
 MEDIA_ROOT = public_root('media')
 MEDIA_URL = env('MEDIA_URL')
-
-# Site URL
-
-SITE_URL = env('SITE_URL')
-API_URL = env('API_URL')
 
 # Config DRF
 REST_FRAMEWORK = {

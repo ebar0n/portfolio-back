@@ -45,6 +45,7 @@ class Developer(models.Model):
     """
     user = models.OneToOneField(settings.AUTH_USER_MODEL, verbose_name=_('user'))
     description = models.TextField(verbose_name=_('description'))
+    domain = models.CharField(verbose_name=_('domain'), max_length=50)
     phone_number = models.CharField(verbose_name=_('phone number'), max_length=20)
     skills = models.ManyToManyField(Tag, verbose_name=_('tags'))
     avatar = models.ImageField(verbose_name=_('avatar'), upload_to='images/developer/')
