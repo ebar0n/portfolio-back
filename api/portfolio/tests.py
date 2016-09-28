@@ -225,7 +225,7 @@ def test_entries_search(client, url_entries, entries):
     )
 
     assert request.status_code == status.HTTP_200_OK, 'Fails to list entries'
-    assert request.data.get('count') == 1, 'Incorrect number objects in data'
+    assert request.data.get('count') >= 1, 'Incorrect number objects in data'
 
 
 @pytest.mark.django_db
