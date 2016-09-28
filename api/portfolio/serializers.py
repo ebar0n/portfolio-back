@@ -35,8 +35,9 @@ class DeveloperSerializer(serializers.ModelSerializer):
 
     class Meta:
         fields = (
-            'id', 'user', 'avatar', 'website', 'github', 'twitter',
-            'linkedin', 'stackoverflow', 'created_at', 'updated_at'
+            'id', 'user', 'description', 'phone_number', 'avatar', 'skills', 'website',
+            'github', 'bitbucket', 'twitter', 'behance', 'facebook', 'instagram', 'linkedin',
+            'stackoverflow', 'created_at', 'updated_at'
         )
         model = models.Developer
 
@@ -55,17 +56,59 @@ class ImageSerializer(serializers.ModelSerializer):
         model = models.Image
 
 
+class TestimonySerializer(serializers.ModelSerializer):
+    """
+        Testimony Serializer
+    """
+
+    class Meta:
+        fields = ('description', 'created_at', 'updated_at')
+        model = models.Testimony
+
+
+class CustomerSerializer(serializers.ModelSerializer):
+    """
+        Customer Serializer
+    """
+
+    class Meta:
+        fields = ('name', 'website', 'email')
+        model = models.Customer
+
+
 class EntrySerializer(serializers.ModelSerializer):
     """
         Entry Serializer
     """
 
-    image_set_filter = serializers.SerializerMethodField('image_set')
+    image_get_filter = serializers.SerializerMethodField('image_set')
 
     class Meta:
         fields = (
-            'id', 'developer', 'title', 'description', 'date', 'tags',
-            'image_set_filter', 'created_at', 'updated_at'
+            'id', 'developer', 'title', 'start_date', 'end_date', 'tags', 'image_get_filter'
+        )
+        model = models.Entry
+
+    def image_set(self, obj):
+        serializer = ImageSerializer(
+            obj.image_set.all().first(),
+        )
+        return serializer.data
+
+
+class EntryRetrieveSerializer(serializers.ModelSerializer):
+    """
+        Entry Retrieve Serializer
+    """
+
+    image_get_filter = serializers.SerializerMethodField('image_set')
+    testimony_get_filter = serializers.SerializerMethodField('testimony_set')
+    customer = serializers.SerializerMethodField('getter_customer')
+
+    class Meta:
+        fields = (
+            'id', 'developer', 'title', 'description', 'customer', 'start_date', 'end_date',
+            'tags', 'website', 'testimony_get_filter', 'image_get_filter', 'created_at', 'updated_at'
         )
         model = models.Entry
 
@@ -73,5 +116,18 @@ class EntrySerializer(serializers.ModelSerializer):
         serializer = ImageSerializer(
             obj.image_set.all(),
             many=True
+        )
+        return serializer.data
+
+    def testimony_set(self, obj):
+        serializer = TestimonySerializer(
+            obj.testimony_set.all(),
+            many=True
+        )
+        return serializer.data
+
+    def getter_customer(self, obj):
+        serializer = CustomerSerializer(
+            obj.customer
         )
         return serializer.data
