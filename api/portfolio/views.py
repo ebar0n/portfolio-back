@@ -32,4 +32,8 @@ class EntryViewSet(viewsets.ReadOnlyModelViewSet):
     filter_fields = ('developer', 'tags')
     queryset = models.Entry.objects.filter(developer__user__is_active=True)
     search_fields = ('title',)
-    serializer_class = serializers.EntrySerializer
+
+    def get_serializer_class(self):
+        if self.action == 'retrieve':
+            return serializers.EntryRetrieveSerializer
+        return serializers.EntrySerializer

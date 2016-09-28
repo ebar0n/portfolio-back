@@ -56,19 +56,28 @@ def tags():
 
 
 @pytest.fixture
+def customer():
+    """
+    Fixture responsible for build a list of customer
+    Returns Object of customer
+    """
+    return factories.CustomerFactory.create()
+
+
+@pytest.fixture
 def developer():
     """
-    Fixture responsible for build a list of Tags
-    Returns List of Tag Objects:
+    Fixture responsible for build a list of developer
+    Returns Object of developer
     """
     return factories.DeveloperFactory.create(user=factories.UserFactory.create())
 
 
 @pytest.fixture
-def entries(tags, developer):
+def entries(tags, developer, customer):
     """
-    Fixture responsible for build a list of Tags
-    Returns List of Tag Objects:
+    Fixture responsible for build a list of entries
+    Returns List of entries Objects:
     """
     number_of_objects_tags = factories.faker.random_digit_not_null()
     tags(number_of_objects_tags)
@@ -77,12 +86,16 @@ def entries(tags, developer):
     number_of_objects_entries = factories.faker.random_digit_not_null()
 
     for i in range(0, number_of_objects_entries):
-        entry = factories.EntryFactory.create(developer=developer)
+        entry = factories.EntryFactory.create(developer=developer, customer=customer)
         entry.tags.add(tag)
-        number_of_objects_images = factories.faker.random_digit_not_null()
 
+        number_of_objects_images = factories.faker.random_digit_not_null()
         for j in range(0, number_of_objects_images):
             factories.ImageFactory.create(entry=entry)
+
+        number_of_objects_testimonies = factories.faker.random_digit_not_null()
+        for j in range(0, number_of_objects_testimonies):
+            factories.TestimonyFactory.create(entry=entry)
 
     return number_of_objects_entries, tag
 
