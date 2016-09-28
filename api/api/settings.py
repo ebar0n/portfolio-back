@@ -119,10 +119,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-locale_root = root.path('api/locale/')
-
-LOCALE_PATHS = (locale_root(),)
-
+LOCALE_PATHS = (public_root('locale'),)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
