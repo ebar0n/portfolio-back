@@ -5,7 +5,9 @@ from fabric.colors import green
 from fabric.operations import prompt
 
 YML = '-f docker-compose-production.yml'
-if prompt(green('Execute local: y/n'), default='y') in ['y', 'Y']:
+LOCAL = prompt(green('Execute local: y/n'), default='y') in ['y', 'Y']
+
+if LOCAL:
     from fabric.api import local as run
     YML = ''
 else:
@@ -65,7 +67,8 @@ def build(branch='master', containder=''):
     Example:
         $ fab build
     """
-    pull(branch=branch)
+    if not LOCAL:
+        pull(branch=branch)
     with cd(HOME_DIRECTORY):
         run('docker-compose {} build {}'.format(YML, containder))
 
