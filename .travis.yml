@@ -25,7 +25,8 @@ script:
   - docker inspect proxy-cache | grep '"IPAddress":'
   - cp env.example .env
   - docker-compose build
-  - docker-compose run --rm --no-deps api isort -c -rc -df
-  - docker-compose run --rm --no-deps api flake8
+  - docker-compose up -d postgres
+  - docker-compose run --rm api isort -c -rc -df
+  - docker-compose run --rm api flake8
   - docker-compose run --rm api python manage.py check
   - docker-compose run --rm api py.test
